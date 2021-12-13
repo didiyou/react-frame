@@ -1,7 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
-    mode:'production',
+    //mode:'production',
     entry:{
         index:'./lib/index.tsx'
     },
@@ -17,29 +17,33 @@ module.exports = {
         rules:[
             {test:/\.tsx?$/,
             loader:'awesome-typescript-loader'
+            },
+            {
+                test:/\.svg$/,
+                loader:'svg-sprite-loader',
             }
         ]
     },
-    plugins:[
-        new HtmlWebpackPlugin(
-            {
-                title:'RUI',
-                template:'index.html'
-            }
-        )
-    ],
-    externals:{
-        react:{
-            commonjs:'react',
-            commonjs2:'react,
-            amd:'react',
-            root:'React',
-        },
-        'react-dom':{
-            commonjs:'react-dom',
-            commonjs2:'react-dom',
-            amd:'react',
-            root:'ReactDOM',
-        },
-    }
+    // plugins:[
+    //     new HtmlWebpackPlugin(
+    //         {
+    //             title:'RUI',
+    //             template:'index.html'
+    //         }
+    //     )
+    // ],
+    // externals:{
+    //     react:{
+    //         commonjs:'react',
+    //         commonjs2:'react,
+    //         amd:'react',
+    //         root:'React',
+    //     },
+    //     'react-dom':{
+    //         commonjs:'react-dom',
+    //         commonjs2:'react-dom',
+    //         amd:'react',
+    //         root:'ReactDOM',
+    //     },
+    // }
 }
