@@ -6,7 +6,7 @@ module.exports = Object.assign({},base,{
     plugins:[
         new HtmlWebpackPlugin(
             {
-                title:'RUI',
+                title:'rui',
                 template:'index.html'
             }
         )
