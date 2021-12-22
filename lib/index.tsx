@@ -5,6 +5,7 @@ import {HashRouter as Router,Route,Link} from 'react-router-dom'
 import IconExample from './icon/icon.example'
 import DialogExample from './dialog/dialog.example'
 import ButtonExample from './button.example'
+import LayoutExample from './layout/layout.example'
 const fn:React.MouseEventHandler = (e)=>{
     console.log(e.target)
     
@@ -31,12 +32,16 @@ ReactDOM.render(
                 <li>
                     <Link to='/dialog'>Dialog</Link>
                 </li>
+                <li>
+                    <Link to='/layout'>布局</Link>
+                </li>
             </ul>
         </aside>
         <main>
             <Route path='/icon' component={IconExample}/>
             <Route path='/button' component={ButtonExample}/>
             <Route path='/dialog' component={DialogExample}/>
+            <Route path='/layout' component={LayoutExample}/>
         </main>
     </div>
     </div>
