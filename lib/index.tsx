@@ -1,49 +1,51 @@
  import React from 'react'
  import './index.scss'
 import ReactDOM from 'react-dom'
-import {HashRouter as Router,Route,Link} from 'react-router-dom'
-import IconExample from './icon/icon.example'
+import {HashRouter as Router,Route,NavLink} from 'react-router-dom'
+import {IconDemo} from './icon/icon.demo'
 import DialogExample from './dialog/dialog.example'
 import ButtonExample from './button.example'
 import LayoutExample from './layout/layout.example'
-const fn:React.MouseEventHandler = (e)=>{
-    console.log(e.target)
-    
-}
+import {Layout,Aside,Header,Content,Footer} from './layout/layout'
+import './page.scss'
+import logo from './icons/logo.png'
+
 
 ReactDOM.render(
     <Router>
-    <div>
-    <header>
+    <Layout className="page">
+    <Header className='site-header'>
         <div className='logo'>
+            <img src={logo} height='120' width='120' alt=''/>
             RUI
         </div>
-    </header>
-    <div>
-        <aside>
+    </Header>
+    <Layout>
+        <Aside className='site-aside'>
             <h2>组件</h2>
             <ul>
                 <li>
-                    <Link to='/icon'>Icon</Link>
+                    <NavLink to='/icon'>Icon</NavLink>
                 </li>
                 <li>
-                    <Link to='/button'>Button</Link>
+                    <NavLink to='/button'>Button</NavLink>
                 </li>
                 <li>
-                    <Link to='/dialog'>Dialog</Link>
+                    <NavLink to='/dialog'>Dialog</NavLink>
                 </li>
                 <li>
-                    <Link to='/layout'>布局</Link>
+                    <NavLink to='/layout'>布局</NavLink>
                 </li>
             </ul>
-        </aside>
-        <main>
-            <Route path='/icon' component={IconExample}/>
+        </Aside>
+        <Content className='site-main'>
+            <Route path='/icon' component={IconDemo}/>
             <Route path='/button' component={ButtonExample}/>
             <Route path='/dialog' component={DialogExample}/>
             <Route path='/layout' component={LayoutExample}/>
-        </main>
-    </div>
-    </div>
+        </Content>
+    </Layout>
+    <Footer className="site-footer">@Dylan</Footer>
+    </Layout>
     </Router>
     ,document.querySelector("#root"))
